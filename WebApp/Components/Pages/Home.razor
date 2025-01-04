@@ -1,0 +1,26 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+    <h1>Welcome to Expense Tracker</h1>
+    <p>Would you like to sign up or login?</p>
+
+    <div style="margin-top: 30px; display: flex; justify-content: center;">
+        <RadzenButton Text="Sign Up" ButtonStyle="ButtonStyle.Primary" Style="margin-right: 20px; width: 150px;" Click="@NavigateToSignUp" />
+        <RadzenButton Text="Login" ButtonStyle="ButtonStyle.Secondary" Style="width: 150px;" Click="@NavigateToLogin" />
+    </div>
+</div>
+
+@code {
+    private void NavigateToSignUp()
+    {
+        // Navigate to the Sign Up page
+        NavigationManager.NavigateTo("/signup");
+    }
+
+    private void NavigateToLogin()
+    {
+        // Navigate to the Login page
+        NavigationManager.NavigateTo("/login");
+    }
+}

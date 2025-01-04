@@ -1,0 +1,74 @@
+﻿@page "/settings"
+@layout WebApp.Components.Layout.NavMenu
+@using WebApp.Services
+@inject IUserService UserService
+@inject NavigationManager NavigationManager
+
+<h3>Settings</h3>
+
+
+<!-- Display Default Tags (read-only) -->
+<h4>Default Tags</h4>
+<ul>
+    @foreach (var tag in defaultTags)
+    {
+        <li>@tag</li>
+    }
+</ul>
+
+<!-- Display User's Custom Tags (editable) -->
+<h4>Your Custom Tags</h4>
+<ul>
+    @foreach (var tag in userTags)
+    {
+        <li>@tag</li>  <!-- No removal option for custom tags -->
+    }
+</ul>
+
+<!-- Add New Custom Tag -->
+<input @bind="newTag" placeholder="Enter new custom tag" />
+<button @onclick="AddCustomTag">Add Custom Tag</button>
+
+@code {
+    private string newTag;
+    private List<string> defaultTags;
+    private List<string> userTags;
+
+    protected override void OnInitialized()
+    {
+        // Fetch the current user's username from your authentication system
+        var currentUser = UserService.CurrentUser; // Make sure this gets the current user from the service
+
+        if (currentUser != null)
+        {
+            // Initialize the tags for the user
+            defaultTags = currentUser.DefaultTags ?? new List<string>(); // Default tags
+            userTags = currentUser.CustomTags ?? new List<string>(); // Load user's custom tags
+        }
+        else
+        {
+            // Handle case where no user is logged in
+            defaultTags = new List<string>();
+            userTags = new List<string>();
+        }
+    }
+
+    private void AddCustomTag()
+    {
+        if (!string.IsNullOrEmpty(newTag))
+        {
+            var currentUser = UserService.CurrentUser; // Make sure you are fetching the correct user object
+            if (currentUser != null && !currentUser.CustomTags.Contains(newTag) && !defaultTags.Contains(newTag))
+            {
+                var success = UserService.AddCustomTagToUser(currentUser.Username, newTag);
+
+                if (success)
+                {
+                    // Reload custom tags after adding new one
+                    userTags = currentUser.CustomTags ?? new List<string>();
+                    newTag = string.Empty; // Clear the input
+                }
+            }
+        }
+    }
+}

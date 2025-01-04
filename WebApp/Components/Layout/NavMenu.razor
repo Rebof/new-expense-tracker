@@ -1,0 +1,83 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject IUserService UserService
+
+<div style="display: flex; flex-direction: column; height: 100vh; margin: 0; padding: 0; overflow: hidden;">
+    <!-- Top Bar -->
+    <RadzenAppBar style="background-color: #BDB7B7; height: 50px; padding: 0; margin: 0; box-shadow: none; display: flex; align-items: center; position: fixed; top: 0; left: 0; width: 100%; z-index: 2; justify-content: center;">
+        <div style="font-size: 20px; color: black; font-weight: bold;">
+            Expense Tracker
+        </div>
+    </RadzenAppBar>
+
+    <!-- Main Layout -->
+    <div style="display: flex; flex: 1; margin: 0; padding: 0; margin-top: 50px;">
+        <!-- Sidebar -->
+        <RadzenPanelMenu style="width: 250px; background-color: #DADADA; margin: 0; padding: 0; position: fixed; top: 50px; left: 0; height: calc(100vh - 50px); z-index: 1;">
+            <!-- Display the username dynamically -->
+            <RadzenPanelMenuItem Text="@UserService.CurrentUser?.Username" style="color: black; font-weight: bold; padding: 20px 10px;" />
+
+            <!-- Dashboard Link -->
+            <RadzenPanelMenuItem Text="Dashboard" style="padding: 10px 20px;" Click="@NavigateToDashboard" />
+
+            <!-- Transaction History Link -->
+            <RadzenPanelMenuItem Text="Transaction History" style="padding: 10px 20px;" Click="@NavigateToTransactionHistory" />
+
+            <!-- Add Transaction Link -->
+            <RadzenPanelMenuItem Text="Add Transaction" style="padding: 10px 20px;" Click="@NavigateToAddTransaction" />
+
+            <!-- Settings Link -->
+            <RadzenPanelMenuItem Text="Settings" style="padding: 10px 20px;" Click="@NavigateToSettings" />
+
+            <!-- Logout Button -->
+            <RadzenButton Text="Logout" ButtonStyle="ButtonStyle.Secondary" style="margin: 20px 10px; width: 90%; color: white; background-color: #383838; z-index: 2;" Click="@Logout" />
+        </RadzenPanelMenu>
+
+        <!-- Content Area -->
+        <div style="flex: 1; margin-left: 250px; padding: 20px; z-index: 1;">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code {
+    private string UserName;
+
+    protected override void OnInitialized()
+    {
+        var currentUser = UserService.CurrentUser; // Get the current logged-in user
+        if (currentUser != null)
+        {
+            UserName = currentUser.Username; // Set the dynamic username here
+        }
+    }
+
+    private void NavigateToDashboard()
+    {
+        NavigationManager.NavigateTo("/dashboard");
+    }
+
+    private void NavigateToTransactionHistory()
+    {
+        NavigationManager.NavigateTo("/history");
+    }
+
+    private void NavigateToAddTransaction()
+    {
+        NavigationManager.NavigateTo("/add");
+    }
+
+    private void NavigateToSettings()
+    {
+        NavigationManager.NavigateTo("/settings");
+    }
+
+    private void Logout()
+    {
+        // Call the logout method to clear the current user
+        UserService.Logout();
+
+        // Redirect to the login page
+        NavigationManager.NavigateTo("/login");
+    }   
+}

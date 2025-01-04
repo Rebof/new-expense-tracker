@@ -1,0 +1,144 @@
+﻿@page "/add"
+@layout WebApp.Components.Layout.NavMenu
+
+@using WebApp.Model
+@using WebApp.Services
+
+@inject ITransactionService TransactionService
+@inject IUserService UserService
+
+<div class="main-content p-4">
+    <h2>Add Transaction</h2>
+    <div class="card p-4 mt-3" style="max-height: 80vh; overflow-y: auto;">
+        <h4>Transaction Details:</h4>
+
+        <!-- Top Section with Types -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <label for="type">Select Transaction Type:</label>
+                <RadzenDropDown TValue="string" id="type" Name="Type" Placeholder="Select type"
+                                Data="@(new List<string> { "Debit", "Credit", "Debt" })"
+                                Style="width: 200px;" @bind-Value="transaction.Type" />
+            </div>
+        </div>
+
+        <RadzenFieldset>
+            <!-- Title Field -->
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <RadzenTextBox id="title" Name="Title" Placeholder="Enter title"
+                               @bind-Value="transaction.Title"
+                               Style="margin-bottom: 20px; width: 100%;" />
+            </div>
+
+            <!-- Amount Field -->
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <RadzenNumeric TValue="decimal" id="amount" Name="Amount"
+                               @bind-Value="transaction.Amount"
+                               Placeholder="Enter amount" Step="0.01" Min="0"
+                               Style="margin-bottom: 20px; width: 100%;" />
+            </div>
+
+            <!-- Debt Source Field -->
+            @if (transaction.Type == "Debt")
+            {
+                <div class="form-group">
+                    <label for="debtSource">Debt Source (if applicable):</label>
+                    <RadzenTextBox id="debtSource" Name="DebtSource" Placeholder="Enter debt source"
+                                   @bind-Value="transaction.DebtSource"
+                                   Style="margin-bottom: 20px; width: 100%;" />
+                </div>
+
+                <!-- Due Date Field -->
+                <div class="form-group">
+                    <label for="dueDate">Due Date (if applicable):</label>
+                    <RadzenDatePicker TValue="DateTime?" id="dueDate" Name="DueDate"
+                                      @bind-Value="transaction.DueDate"
+                                      Placeholder="Select due date"
+                                      Style="margin-bottom: 20px; width: 100%;" />
+                </div>
+            }
+
+            <!-- Note Field -->
+            <div class="form-group">
+                <label for="note">Note (optional):</label>
+                <RadzenTextBox id="note" Name="Note" Placeholder="Enter note"
+                               @bind-Value="transaction.Note"
+                               Style="margin-bottom: 20px; width: 100%;" />
+            </div>
+
+            <!-- Hardcoded Tags Dropdown -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <label for="tags">Select Tag:</label>
+                    <RadzenDropDown TValue="string" id="tags" Name="Tags" Placeholder="Select a tag"
+                                    Data="@(new List<string> { "Food", "Shopping", "Entertainment", "Bills", "Savings" })"
+                                    Style="width: 200px;" @bind-Value="transaction.Tag" />
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <RadzenButton ButtonType="ButtonType.Submit" Text="Post"
+                              Style="width: 100px;" Click="@OnSubmit" />
+            </div>
+        </RadzenFieldset>
+
+        <!-- Display success or error message -->
+        @if (!string.IsNullOrEmpty(statusMessage))
+        {
+            <div class="alert alert-info mt-3">
+                @statusMessage
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private Transaction transaction = new Transaction();
+    private string statusMessage;
+    private string UserName;
+
+    protected override void OnInitialized()
+    {
+        var currentUser = UserService.CurrentUser; // Get the current logged-in user
+        if (currentUser != null)
+        {
+            UserName = currentUser.Username; // Set the dynamic username here
+        }
+    }
+
+    // This method handles the submission of the form
+    private async Task OnSubmit()
+    {
+        try
+        {
+            // Call the injected TransactionService to create the transaction
+            bool isSuccess = await TransactionService.Create(
+                UserName,
+                transaction.Title,
+                transaction.Amount,
+                transaction.Type,
+                transaction.DebtSource,
+                transaction.DueDate,
+                transaction.Note,
+                transaction.Tag
+            );
+
+            // Update status message based on result
+            if (isSuccess)
+            {
+                statusMessage = "Transaction saved successfully!";
+            }
+            else
+            {
+                statusMessage = "Failed to save the transaction.";
+            }
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error: {ex.Message}";
+        }
+    }
+}

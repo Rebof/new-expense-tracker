@@ -1,0 +1,198 @@
+﻿@page "/history"
+@using WebApp.Services
+@layout WebApp.Components.Layout.NavMenu
+@inject ITransactionService TransactionService
+@inject IUserService UserService
+
+@* CSS for Word Wrapping *@
+<style>
+    .word-wrap-grid {
+        table-layout: fixed;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+        .word-wrap-grid .rz-column {
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word; /* Ensure proper word breaking */
+        }
+
+        .word-wrap-grid .rz-cell {
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+</style>
+
+<div class="main-content p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Transaction History</h2>
+        <RadzenButton ButtonType="ButtonType.Button" Text="@sortButtonText"
+                      Icon="sort" Style="width: auto;" Click="@SortByDate" />
+    </div>
+
+    <!-- Filter Section -->
+    <div class="card p-3 mb-4">
+        <h4>Filters</h4>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="type">Type:</label>
+                <RadzenDropDown TValue="string" id="type" Name="Type" Placeholder="Select type"
+                                Data="@(new List<string> { "Debit", "Credit", "Debt" })"
+                                @bind-Value="selectedType"
+                                AllowClear="true"
+                                Style="width: 100%;" />
+            </div>
+            <div class="col-md-3">
+                <label for="tags">Tags:</label>
+                <RadzenDropDown TValue="string" id="tags" Name="Tags" Placeholder="Select tag(s)"
+                                Data="@(new List<string> { "Entertainment", "Food", "Bills", "Savings" })"
+                                @bind-Value="selectedTag"
+                                AllowClear="true" Style="width: 100%;" />
+            </div>
+            <div class="col-md-3">
+                <label>Date Range:</label>
+                <div class="d-flex align-items-center">
+                    <RadzenDatePicker TValue="DateTime?" id="fromDate" Name="FromDate"
+                                      @bind-Value="fromDate" Placeholder="From" Style="width: 48%;" />
+                    <span class="mx-2">to</span>
+                    <RadzenDatePicker TValue="DateTime?" id="toDate" Name="ToDate"
+                                      @bind-Value="toDate" Placeholder="To" Style="width: 48%;" />
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <RadzenButton ButtonType="ButtonType.Button" Text="Apply"
+                              Icon="filter" Style="width: 100%;" Click="@ApplyFilters" />
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="d-flex">
+                <input type="search" class="form-control search" placeholder="Search"
+                       @bind="searchText" @oninput="SearchTransactions" />
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Transaction List Table -->
+    <div class="card p-3">
+        <h4>Transaction List:</h4>
+        <RadzenDataGrid Data="@filteredTransactions" TItem="Transaction" Style="width: 100%;" Class="word-wrap-grid">
+            <Columns>
+                <RadzenDataGridColumn TItem="Transaction" Property="Date" Title="Date" />
+                <RadzenDataGridColumn TItem="Transaction" Property="Title" Title="Title" />
+                <RadzenDataGridColumn TItem="Transaction" Property="Amount" Title="Amount" />
+                <RadzenDataGridColumn TItem="Transaction" Property="Type" Title="Type" />
+                <RadzenDataGridColumn TItem="Transaction" Property="Tag" Title="Tag" />
+                <RadzenDataGridColumn TItem="Transaction" Property="Note" Title="Note" />
+            </Columns>
+        </RadzenDataGrid>
+    </div>
+</div>
+
+@code {
+    private List<Transaction> transactions = new List<Transaction>();
+    private List<Transaction> filteredTransactions = new List<Transaction>();
+    private string statusMessage;
+    private string UserName;
+
+    private string selectedType;
+    private string selectedTag;
+    private DateTime? fromDate;
+    private DateTime? toDate;
+    private string searchText; // Search text bound to input field
+    private bool isSortedDescending = true; // Default sorting order: latest to oldest
+    private string sortButtonText => isSortedDescending ? "Sort by Oldest" : "Sort by Latest"; // Toggle text
+
+    protected override async Task OnInitializedAsync()
+    {
+        var currentUser = UserService.CurrentUser; // Get the current logged-in user
+        if (currentUser != null)
+        {
+            UserName = currentUser.Username; // Set the dynamic username here
+        }
+
+        try
+        {
+            // Fetch transactions using the injected TransactionService
+            transactions = await TransactionService.GetAll(UserName);
+
+            if (transactions == null || !transactions.Any())
+            {
+                statusMessage = "No transactions found.";
+            }
+            else
+            {
+                statusMessage = $"Fetched {transactions.Count} transactions.";
+                filteredTransactions = new List<Transaction>(transactions); // Initially show all transactions
+            }
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error: {ex.Message}";
+        }
+    }
+
+    // Apply filters to the transactions list
+    private void ApplyFilters()
+    {
+        filteredTransactions = transactions;
+
+        // Filter by Type if selected
+        if (!string.IsNullOrEmpty(selectedType))
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Type == selectedType).ToList();
+        }
+
+        // Filter by Tag if selected
+        if (!string.IsNullOrEmpty(selectedTag))
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Tag == selectedTag).ToList();
+        }
+
+        // Filter by Date Range if selected
+        if (fromDate.HasValue)
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Date >= fromDate.Value).ToList();
+        }
+
+        if (toDate.HasValue)
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Date <= toDate.Value).ToList();
+        }
+
+        // Apply search filter
+        SearchTransactions();
+    }
+
+    // Search transactions based on the entered text
+    private void SearchTransactions()
+    {
+        string searchTerm = searchText?.ToLower();
+
+        if (!string.IsNullOrEmpty(searchTerm) && searchTerm.Length > 2)
+        {
+            filteredTransactions = filteredTransactions
+                .Where(t => t.Title.ToLower().Contains(searchTerm) || t.Note.ToLower().Contains(searchTerm))
+                .ToList();
+        }
+    }
+
+    // Sort transactions by Date (latest to oldest / oldest to latest)
+    private void SortByDate()
+    {
+        if (isSortedDescending)
+        {
+            filteredTransactions = filteredTransactions.OrderByDescending(t => t.Date).ToList();
+        }
+        else
+        {
+            filteredTransactions = filteredTransactions.OrderBy(t => t.Date).ToList();
+        }
+
+        // Toggle the sorting order for next click
+        isSortedDescending = !isSortedDescending;
+    }
+}

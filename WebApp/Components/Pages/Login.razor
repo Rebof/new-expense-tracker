@@ -1,0 +1,79 @@
+﻿@page "/login"
+@inject IUserService UserService
+@inject NavigationManager NavigationManager
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+    <h2>Get Ready to Track Your Expenses!</h2>
+
+    <div style="margin: 20px auto; width: 350px; padding: 30px; background-color: #e0e0e0; border-radius: 10px;">
+        <h3>Login</h3>
+
+        <!-- Username -->
+        <RadzenTextBox @bind-Value="User.Username" Placeholder="Username" Style="margin-bottom: 20px; width: 100%;" />
+
+        <!-- Password -->
+        <RadzenTextBox @bind-Value="User.Password" Placeholder="Password" Type="password" Style="margin-bottom: 20px; width: 100%;" />
+
+        <!-- Login Button -->
+        <RadzenButton Text="Login" ButtonStyle="ButtonStyle.Primary" Style="width: 100px; margin-bottom: 20px;" Click="@LoginUser" Disabled="@IsProcessing" />
+
+        <!-- Back Button -->
+        <RadzenButton Text="Back" ButtonStyle="ButtonStyle.Secondary" Style="width: 100px;" Click="@NavigateBack" />
+
+        <!-- Feedback Message -->
+        @if (!string.IsNullOrEmpty(Message))
+        {
+            <div style="margin-top: 20px; color: @MessageColor;">@Message</div>
+        }
+    </div>
+</div>
+
+@code {
+    private User User { get; set; } = new User();
+    private string? Message { get; set; }
+    private string MessageColor { get; set; } = "black";
+    private bool IsProcessing { get; set; } = false;
+
+    private async Task LoginUser()
+    {
+        if (IsProcessing) return;
+
+        IsProcessing = true;
+        Message = "Logging in...";
+        MessageColor = "blue";
+
+        try
+        {
+            // Call the login method from the service
+            bool isLoggedIn = await Task.Run(() => UserService.Login(User));
+
+            if (isLoggedIn)
+            {
+                Message = "Login successful!";
+                MessageColor = "green";
+                await Task.Delay(1000); // Simulate loading
+                NavigationManager.NavigateTo("/dashboard"); // Navigate to dashboard after login
+            }
+            else
+            {
+                Message = "Invalid username or password.";
+                MessageColor = "red";
+            }
+        }
+        catch (Exception ex)
+        {
+            Message = $"An error occurred: {ex.Message}";
+            MessageColor = "red";
+        }
+        finally
+        {
+            IsProcessing = false;
+        }
+    }
+
+    private void NavigateBack()
+    {
+        // Navigate to the default page
+        NavigationManager.NavigateTo("/");
+    }
+}

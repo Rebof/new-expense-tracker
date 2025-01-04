@@ -1,0 +1,194 @@
+﻿@page "/signup"
+
+@inject IUserService UserService
+@inject NavigationManager NavigationManager
+
+<div class="register-container">
+    <h1 class="text-center">Get Ready to Track Your Expenses!</h1>
+
+    <div class="signup-form">
+        <h2 class="form-header">Sign up form</h2>
+
+        <div class="form-group">
+            <input type="text" class="form-control" @bind="Users.FullName" placeholder="Full Name" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" @bind="Users.Username" placeholder="Username" />
+        </div>
+
+        <div class="form-group">
+            <input type="email" class="form-control" @bind="Users.Email" placeholder="Email" />
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" @bind="Users.Password" placeholder="Password" />
+        </div>
+
+        <div class="form-group">
+            <select class="form-select" @bind="Users.Currency">
+                <option value="" disabled selected>Preferred Currency</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="INR">INR</option>
+                <option value="GBP">GBP</option>
+            </select>
+        </div>
+
+        <button class="btn btn-submit" @onclick="RegisterUser" disabled="@IsProcessing">
+            @(IsProcessing ? "Processing..." : "Register")
+        </button>
+
+        <button class="btn btn-secondary mt-3" @onclick="NavigateBack">
+            Back
+        </button>
+
+        @if (!string.IsNullOrEmpty(Message))
+
+        {
+            <div class="text-info mt-3 text-center">@Message</div>
+        }
+    </div>
+</div>
+
+<style>
+    .register-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 20px;
+        max-width: 400px;
+        background-color: #f3f3f3;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-form {
+        width: 100%;
+    }
+
+    .form-header {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form-select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .btn-submit:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+    .btn-secondary {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        background-color: #6c757d;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+</style>
+
+@code {
+    private string? Message;
+    private User Users { get; set; } = new User();
+    private bool IsProcessing { get; set; } = false;
+
+
+
+    private async Task RegisterUser()
+
+    {
+        if (IsProcessing) return;
+        IsProcessing = true;
+        Message = "Registering user...";
+
+        try
+
+        {
+            bool isRegistered = await Task.Run(() => UserService.Register(Users));
+
+            if (isRegistered)
+
+            {
+                Message = "User registered successfully!";
+
+                await Task.Delay(1000); // Simulate loading
+
+                NavigationManager.NavigateTo("/login");
+
+            }
+
+            else
+            {
+                Message = "Username or Email already exists.";
+            }
+        }
+
+        catch (Exception ex)
+
+        {
+
+            Message = $"An error occurred: {ex.Message}";
+
+        }
+
+        finally
+
+        {
+
+            IsProcessing = false;
+
+        }
+
+    }
+
+
+
+    private void NavigateBack()
+
+    {
+
+        NavigationManager.NavigateTo("/");
+
+    }
+}
