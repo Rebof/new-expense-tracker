@@ -23,7 +23,7 @@ namespace WebApp.Model
         {
             // Initialize with some default tags
             DefaultTags = new List<string> { "groceries", "salary", "rent", "work", "travel" };
-            CustomTags = new List<string>(); // Initially, no custom tags
+            CustomTags = new List<string>(); 
             Balance = 0;
         }
     }

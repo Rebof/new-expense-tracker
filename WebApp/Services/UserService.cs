@@ -22,16 +22,16 @@ namespace WebApp.Services
 
             if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
             {
-                return false; // Invalid input
+                return false; 
             }
 
             var hashedPassword = HashPassword(user.Password);
             User fullUser = GetUserByUsername(user.Username);
 
-            // Validate login and set the current user
+            
             if (users.Any(u => u.Username == user.Username && u.Password == hashedPassword))
             {
-                _currentUser = fullUser; // Set the logged-in user
+                _currentUser = fullUser; 
                 return true;
             }
 
@@ -41,32 +41,31 @@ namespace WebApp.Services
 
         public bool Register(User user)
         {
-            // Load the existing users from the JSON file
+            // Load the existing users
             var users = LoadUsers();
 
-            // Check if the username or email already exists
             if (users.Any(u => u.Username == user.Username || u.Email == user.Email))
-                return false; // Registration failed: username or email already exists
+                return false; 
 
-            // Hash the password before storing (for better security)
+            
             user.Password = HashPassword(user.Password);
 
-            // Add the new user to the list
+            
             users.Add(user);
 
-            // Save the updated list of users
+          
             SaveUsers(users);
 
-            return true; // Registration successful
+            return true; 
         }
 
-        // Method to hash the password (simple example with SHA256)
+        
         private string HashPassword(string password)
         {
             using (var sha256 = SHA256.Create())
             {
                 byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hashBytes); // Return hashed password as base64 string
+                return Convert.ToBase64String(hashBytes); 
             }
         }
 
@@ -82,12 +81,12 @@ namespace WebApp.Services
             var users = LoadUsers();
             var user = users.FirstOrDefault(u => u.Username == username);
 
-            if (user != null && !user.CustomTags.Contains(tag) && !user.DefaultTags.Contains(tag))  // Ensure tag is not a default tag
+            if (user != null && !user.CustomTags.Contains(tag) && !user.DefaultTags.Contains(tag))  
             {
-                user.CustomTags.Add(tag);  // Add the custom tag
+                user.CustomTags.Add(tag);  
                 SaveUsers(users);
 
-                // Update the current user after modifying the tags
+                
                 if (_currentUser != null && _currentUser.Username == username)
                 {
                     _currentUser = user;  // Refresh the current user with the updated custom tags

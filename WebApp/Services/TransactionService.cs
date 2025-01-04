@@ -2,86 +2,69 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using System.Threading.Tasks;  // Added for Task-based async support
+using System.Threading.Tasks;
 using WebApp.Model;
 using WebApp.Services.Interface;
 using WebApp.Abstraction;
+using System.Diagnostics;
 
 namespace WebApp.Services
 {
     public class TransactionService : UserBase, ITransactionService
     {
-        // Method to get the application directory path
         private static string GetAppDirectoryPath()
         {
-            // Get the path to the application directory
             string appDirectoryPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "Islington-Transactions" // Directory for transaction-related data
+                "Islington-Transactions"
             );
 
-            // Check if the directory exists, if not, create it
             if (!Directory.Exists(appDirectoryPath))
             {
-                Directory.CreateDirectory(appDirectoryPath); // Create the directory if it doesn't exist
+                Directory.CreateDirectory(appDirectoryPath);
             }
 
-            return appDirectoryPath; // Return the directory path
+            return appDirectoryPath;
         }
 
-            
-        // Method to get the path for the users.json file
         private static string GetAppUsersFilePath()
         {
             return Path.Combine(GetAppDirectoryPath(), "users.json");
         }
 
-        // Method to get the path for a specific user's transaction file
         private static string GetTransactionsFilePath(string username)
         {
             return Path.Combine(GetAppDirectoryPath(), $"{username}_transactions.json");
         }
 
-        // Method to load all transactions for a specific user asynchronously
         public async Task<List<Transaction>> GetAll(string username)
         {
             string filePath = GetTransactionsFilePath(username);
 
-            // Check if the transaction file exists
             if (!File.Exists(filePath))
             {
-                return new List<Transaction> { new Transaction { Title = $"File path not found: {filePath}" } }; // Return empty list if no transactions exist for the user
+                return new List<Transaction> { new Transaction { Title = $"File path not found: {filePath}" } };
             }
 
             try
             {
-                // Read the file asynchronously
                 var json = await File.ReadAllTextAsync(filePath);
-
-                // Deserialize the JSON content into a list of transactions
-                // If deserialization fails (null result), return an empty list
                 return JsonSerializer.Deserialize<List<Transaction>>(json) ?? new List<Transaction>();
             }
             catch (Exception ex)
             {
-                // Log the error (you could use a logging framework here)
                 Console.WriteLine($"Error deserializing transactions for {username}: {ex.Message}");
-                return new List<Transaction>(); // Return empty list in case of an error
+                return new List<Transaction>();
             }
         }
 
-
-        // Method to save all transactions for a specific user asynchronously
         private async Task SaveTransactions(string username, List<Transaction> transactions)
         {
             string filePath = GetTransactionsFilePath(username);
-
             var json = JsonSerializer.Serialize(transactions);
-            // Write to file asynchronously
             await File.WriteAllTextAsync(filePath, json);
         }
 
-        // Method to create and add a new transaction for a user asynchronously
         public async Task<bool> Create(
             string username,
             string title,
@@ -98,7 +81,6 @@ namespace WebApp.Services
                 throw new Exception("Amount must be greater than zero.");
             if (string.IsNullOrEmpty(type))
                 throw new Exception("Transaction type is required.");
-
             if (type == "Debt" && (string.IsNullOrEmpty(debtSource) || !dueDate.HasValue))
                 throw new Exception("Debt Source and Due Date are required for a Debt transaction.");
 
@@ -115,7 +97,15 @@ namespace WebApp.Services
                 CreatedBy = username
             };
 
-            // Load transactions and user
+            if (type == "Debt")
+            {
+                transaction.DebtCleared = false;
+            }
+            else
+            {
+                transaction.DebtCleared = null;
+            }
+
             var transactions = await GetAll(username);
             var users = LoadUsers();
             var user = users.FirstOrDefault(u => u.Username == username);
@@ -123,28 +113,58 @@ namespace WebApp.Services
             if (user == null)
                 throw new Exception("User not found.");
 
-            // Check if the user has enough balance for a debit transaction
             if (type == "Debit" && user.Balance < amount)
             {
                 throw new Exception("Insufficient balance for the debit transaction.");
             }
 
-            // Update balance based on transaction type
             if (type == "Credit")
                 user.Balance += amount;
             else if (type == "Debit")
                 user.Balance -= amount;
 
             transactions.Add(transaction);
-
-            // Save updated transactions and users
             await SaveTransactions(username, transactions);
-            SaveUsers(users); // Ensure updated balance is persisted
+            SaveUsers(users);
 
             return true;
         }
 
+        public async Task<bool> ClearDebt(string username, int transactionId)
+        {
+            var transactions = await GetAll(username);
+            var debtTransaction = transactions.FirstOrDefault(t => t.Id == transactionId && t.Type == "Debt" && t.DebtCleared == false);
 
+            if (debtTransaction == null)
+            {
+                return false;
+            }
 
+            var users = LoadUsers();
+            var user = users.FirstOrDefault(u => u.Username == username);
+
+            if (user == null)
+                throw new Exception("User not found.");
+
+            if (user.Balance < debtTransaction.Amount)
+            {
+                return false;
+            }
+
+            Debug.WriteLine($"User {username}: Balance before deduction: {user.Balance}");
+            Console.WriteLine($"User {username}: Balance before deduction: {user.Balance}");
+
+            user.Balance -= debtTransaction.Amount;
+
+            Console.WriteLine($"User {username}: Balance after deduction: {user.Balance}");
+
+            debtTransaction.DebtCleared = true;
+            debtTransaction.Date = DateTime.Now;
+
+            await SaveTransactions(username, transactions);
+            SaveUsers(users);
+
+            return true;
+        }
     }
 }

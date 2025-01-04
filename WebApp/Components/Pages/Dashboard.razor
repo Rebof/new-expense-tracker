@@ -1,5 +1,154 @@
 ﻿@page "/dashboard"
 @layout WebApp.Components.Layout.NavMenu
 
-<h3>Dashboard</h3>
-<p>Welcome to the Expense Tracker dashboard.</p>
+@inject ITransactionService TransactionService
+@inject IUserService UserService
+
+<RadzenCard Class="main-card" Style="padding: 20px; height: 100vh;">
+    <h3 style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        Dashboard
+        <span>Balance: @balance</span>
+    </h3>
+
+    <RadzenCard Class="content-card" Style="padding: 20px; height: 100%; overflow-y: auto;">
+        <h5 style="margin-bottom: 15px; text-align: center;">Transaction Summary:</h5>
+
+        <RadzenRow Style="margin-bottom: 20px;">
+            <!-- Statistics Section -->
+            <RadzenColumn Size="6">
+                <RadzenCard Class="stats-card" Style="padding: 20px;">
+                    <h6 style="margin-bottom: 15px; text-align: center;">Statistics</h6>
+                    <div>Total Inflow: @totalInflow</div>
+                    <div>Total Debt: @totalDebt</div>
+                    <div>Balance: @balance</div>
+                    <div>Total Outflow: @totalOutflow</div>
+                    <div>Cleared Debt: @clearedDebt</div>
+                    <div>Remaining Debt: @remainingDebt</div>
+                </RadzenCard>
+            </RadzenColumn>
+
+            <!-- Highlight Section -->
+            <RadzenColumn Size="6">
+                <div>
+                    <h6>Highlights</h6>
+                    <div>Highest Debit: @(highestDebit != null ? $"{highestDebit.Title} - {highestDebit.Amount}" : "N/A")</div>
+                    <div>Lowest Debit: @(lowestDebit != null ? $"{lowestDebit.Title} - {lowestDebit.Amount}" : "N/A")</div>
+                    <div>Highest Credit: @(highestCredit != null ? $"{highestCredit.Title} - {highestCredit.Amount}" : "N/A")</div>
+                    <div>Lowest Credit: @(lowestCredit != null ? $"{lowestCredit.Title} - {lowestCredit.Amount}" : "N/A")</div>
+                    <div>Highest Debt: @(highestDebt != null ? $"{highestDebt.Title} - {highestDebt.Amount}" : "N/A")</div>
+                    <div>Lowest Debt: @(lowestDebt != null ? $"{lowestDebt.Title} - {lowestDebt.Amount}" : "N/A")</div>
+                </div>
+            </RadzenColumn>
+        </RadzenRow>
+
+        <h5 style="margin-bottom: 15px; text-align: center;">Pending Debts</h5>
+        <RadzenDataGrid Data="@debts" ColumnWidth="250px" RowHeight="50px">
+            <Columns>
+                <RadzenDataGridColumn Property="Title" Title="Title" />
+                <RadzenDataGridColumn Property="Amount" Title="Amount" />
+                <RadzenDataGridColumn Property="DueDate" Title="Due Date" />
+                <RadzenDataGridColumn Title="Clear">
+                    <Template Context="data">
+                        <RadzenButton Text="Clear" ButtonStyle="ButtonStyle.Danger" Icon="check" Click="() => ClearDebt(data.Id)" />
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+        </RadzenDataGrid>
+
+        <!-- Cleared Debts Section -->
+        <h5 style="margin-top: 30px; margin-bottom: 15px; text-align: center;">Cleared Debts</h5>
+        <RadzenDataGrid Data="@clearedDebts" ColumnWidth="250px" RowHeight="50px">
+            <Columns>
+                <RadzenDataGridColumn Property="Title" Title="Title" />
+                <RadzenDataGridColumn Property="Amount" Title="Amount" />
+                <RadzenDataGridColumn Property="Date" Title="Cleared Date" />
+            </Columns>
+        </RadzenDataGrid>
+    </RadzenCard>
+</RadzenCard>
+
+@code {
+    private string UserName;
+    private string statusMessage;
+    private List<Transaction> debts = new();
+    private List<Transaction> clearedDebts = new();
+    private decimal totalInflow, totalDebt, totalOutflow, balance, clearedDebt, remainingDebt;
+    private Transaction? highestDebit, lowestDebit, highestCredit, lowestCredit, highestDebt, lowestDebt;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var currentUser = UserService.CurrentUser; // Get the current logged-in user
+            if (currentUser != null)
+            {
+                UserName = currentUser.Username;
+            }
+
+            // Fetch transactions using the service
+            var transactions = await TransactionService.GetAll(UserName);
+            if (transactions == null || !transactions.Any())
+            {
+                statusMessage = "No transactions found.";
+                return;
+            }
+
+            // Filter pending debts
+            debts = transactions
+                                .Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == false)
+                                .ToList();
+
+            // Filter cleared debts
+            clearedDebts = transactions
+                                .Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == true)
+                                .ToList();
+
+            // Calculate statistics
+            totalInflow = transactions.Where(t => t.Type == "Credit").Sum(t => t.Amount);
+            totalOutflow = transactions.Where(t => t.Type == "Debit").Sum(t => t.Amount) +
+                           clearedDebts.Sum(t => t.Amount);
+            totalDebt = transactions.Where(t => t.Type == "Debt").Sum(t => t.Amount);
+            clearedDebt = transactions
+                .Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault())
+                .Sum(t => t.Amount);
+            remainingDebt = totalDebt - clearedDebt;
+            balance = totalInflow - totalOutflow;
+
+            // Calculate highlights
+            highestDebit = transactions.Where(t => t.Type == "Debit").OrderByDescending(t => t.Amount).FirstOrDefault();
+            lowestDebit = transactions.Where(t => t.Type == "Debit").OrderBy(t => t.Amount).FirstOrDefault();
+            highestCredit = transactions.Where(t => t.Type == "Credit").OrderByDescending(t => t.Amount).FirstOrDefault();
+            lowestCredit = transactions.Where(t => t.Type == "Credit").OrderBy(t => t.Amount).FirstOrDefault();
+            highestDebt = transactions.Where(t => t.Type == "Debt").OrderByDescending(t => t.Amount).FirstOrDefault();
+            lowestDebt = transactions.Where(t => t.Type == "Debt").OrderBy(t => t.Amount).FirstOrDefault();
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error fetching transactions: {ex.Message}";
+        }
+    }
+
+    private async Task ClearDebt(int transactionId)
+    {
+        try
+        {
+            var success = await TransactionService.ClearDebt(UserName, transactionId);
+            if (success)
+            {
+                // Refresh the dat
+                var transactions = await TransactionService.GetAll(UserName);
+                debts = transactions.Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == false).ToList();
+                clearedDebts = transactions.Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == true).ToList();
+                statusMessage = "Debt cleared successfully!";
+            }
+            else
+            {
+                statusMessage = "Failed to clear debt. Insufficient balance.";
+            }
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error clearing debt: {ex.Message}";
+        }
+    }
+}

@@ -102,21 +102,21 @@
     private string selectedTag;
     private DateTime? fromDate;
     private DateTime? toDate;
-    private string searchText; // Search text bound to input field
-    private bool isSortedDescending = true; // Default sorting order: latest to oldest
+    private string searchText; 
+    private bool isSortedDescending = true; 
     private string sortButtonText => isSortedDescending ? "Sort by Oldest" : "Sort by Latest"; // Toggle text
 
     protected override async Task OnInitializedAsync()
     {
-        var currentUser = UserService.CurrentUser; // Get the current logged-in user
+        var currentUser = UserService.CurrentUser; 
         if (currentUser != null)
         {
-            UserName = currentUser.Username; // Set the dynamic username here
+            UserName = currentUser.Username; 
         }
 
         try
         {
-            // Fetch transactions using the injected TransactionService
+            
             transactions = await TransactionService.GetAll(UserName);
 
             if (transactions == null || !transactions.Any())
@@ -126,7 +126,7 @@
             else
             {
                 statusMessage = $"Fetched {transactions.Count} transactions.";
-                filteredTransactions = new List<Transaction>(transactions); // Initially show all transactions
+                filteredTransactions = new List<Transaction>(transactions); 
             }
         }
         catch (Exception ex)
@@ -140,19 +140,18 @@
     {
         filteredTransactions = transactions;
 
-        // Filter by Type if selected
+        
         if (!string.IsNullOrEmpty(selectedType))
         {
             filteredTransactions = filteredTransactions.Where(t => t.Type == selectedType).ToList();
         }
 
-        // Filter by Tag if selected
+        
         if (!string.IsNullOrEmpty(selectedTag))
         {
             filteredTransactions = filteredTransactions.Where(t => t.Tag == selectedTag).ToList();
         }
 
-        // Filter by Date Range if selected
         if (fromDate.HasValue)
         {
             filteredTransactions = filteredTransactions.Where(t => t.Date >= fromDate.Value).ToList();
@@ -163,11 +162,11 @@
             filteredTransactions = filteredTransactions.Where(t => t.Date <= toDate.Value).ToList();
         }
 
-        // Apply search filter
+        
         SearchTransactions();
     }
 
-    // Search transactions based on the entered text
+    
     private void SearchTransactions()
     {
         string searchTerm = searchText?.ToLower();
@@ -180,7 +179,7 @@
         }
     }
 
-    // Sort transactions by Date (latest to oldest / oldest to latest)
+    
     private void SortByDate()
     {
         if (isSortedDescending)

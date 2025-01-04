@@ -1,0 +1,336 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rebof\\source\\repos\\WebApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\services\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\services\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\services\\interface\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\services\\interface\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\model\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\model\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\pages\\transactionhistory.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\pages\\transactionhistory.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\pages\\signup.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\pages\\signup.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\pages\\settings.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\pages\\settings.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\pages\\addtransaction.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\pages\\addtransaction.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\abstraction\\userbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\abstraction\\userbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|c:\\users\\rebof\\source\\repos\\webapp\\webapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{581ABC99-2AC3-4E15-8BA9-4FD82DFB6DCB}|WebApp\\WebApp.csproj|solutionrelative:webapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Signup.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Signup.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Pages\\Signup.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Signup.razor",
+              "RelativeToolTip": "WebApp\\Components\\Pages\\Signup.razor",
+              "ViewState": "AgIAALcAAAAAAAAAAAAAAKMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T10:38:49.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransactionHistory.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\TransactionHistory.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Pages\\TransactionHistory.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\TransactionHistory.razor",
+              "RelativeToolTip": "WebApp\\Components\\Pages\\TransactionHistory.razor",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAAALUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T15:10:29.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Model\\Transaction.cs",
+              "RelativeDocumentMoniker": "WebApp\\Model\\Transaction.cs",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Model\\Transaction.cs",
+              "RelativeToolTip": "WebApp\\Model\\Transaction.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T08:26:03.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Model\\User.cs",
+              "RelativeDocumentMoniker": "WebApp\\Model\\User.cs",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Model\\User.cs",
+              "RelativeToolTip": "WebApp\\Model\\User.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T10:21:05.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Services\\Interface\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "WebApp\\Services\\Interface\\ITransactionService.cs",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Services\\Interface\\ITransactionService.cs",
+              "RelativeToolTip": "WebApp\\Services\\Interface\\ITransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T08:58:51.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Services\\Interface\\IUserService.cs",
+              "RelativeDocumentMoniker": "WebApp\\Services\\Interface\\IUserService.cs",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Services\\Interface\\IUserService.cs",
+              "RelativeToolTip": "WebApp\\Services\\Interface\\IUserService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T10:21:44.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Services\\TransactionService.cs",
+              "RelativeDocumentMoniker": "WebApp\\Services\\TransactionService.cs",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Services\\TransactionService.cs",
+              "RelativeToolTip": "WebApp\\Services\\TransactionService.cs",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAAAKoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T08:28:29.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "WebApp\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Services\\UserService.cs",
+              "RelativeToolTip": "WebApp\\Services\\UserService.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAswDoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T10:22:14.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Settings.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Settings.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Pages\\Settings.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Settings.razor",
+              "RelativeToolTip": "WebApp\\Components\\Pages\\Settings.razor",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T15:10:54.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "WebApp\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-24T04:30:09.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AddTransaction.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\AddTransaction.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Pages\\AddTransaction.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\AddTransaction.razor",
+              "RelativeToolTip": "WebApp\\Components\\Pages\\AddTransaction.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T15:10:11.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Dashboard.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Dashboard.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Pages\\Dashboard.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Dashboard.razor*",
+              "RelativeToolTip": "WebApp\\Components\\Pages\\Dashboard.razor*",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T10:22:38.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "WebApp\\Components\\Pages\\Login.razor",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwEoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T11:37:27.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "WebApp\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T09:46:48.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserBase.cs",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Abstraction\\UserBase.cs",
+              "RelativeDocumentMoniker": "WebApp\\Abstraction\\UserBase.cs",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Abstraction\\UserBase.cs",
+              "RelativeToolTip": "WebApp\\Abstraction\\UserBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T10:23:13.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "WebApp\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\MauiProgram.cs",
+              "RelativeToolTip": "WebApp\\MauiProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T08:29:24.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\_Imports.razor",
+              "RelativeToolTip": "WebApp\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T09:26:28.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "WebApp\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "WebApp\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T09:47:05.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "WebApp\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\rebof\\source\\repos\\WebApp\\WebApp\\wwwroot\\index.html",
+              "RelativeToolTip": "WebApp\\wwwroot\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-01T09:35:39.209Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

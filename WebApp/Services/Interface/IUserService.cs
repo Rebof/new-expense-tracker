@@ -15,7 +15,7 @@ namespace WebApp.Services.Interface
 
         User GetUserByUsername(string username);
 
-        // Property or method to get the current logged-in user
+        
         User CurrentUser { get; }
 
         bool AddCustomTagToUser(string username, string newTag);

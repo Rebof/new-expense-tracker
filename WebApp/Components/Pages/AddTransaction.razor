@@ -102,19 +102,19 @@
 
     protected override void OnInitialized()
     {
-        var currentUser = UserService.CurrentUser; // Get the current logged-in user
+        var currentUser = UserService.CurrentUser; 
         if (currentUser != null)
         {
-            UserName = currentUser.Username; // Set the dynamic username here
+            UserName = currentUser.Username; 
         }
     }
 
-    // This method handles the submission of the form
+    
     private async Task OnSubmit()
     {
         try
         {
-            // Call the injected TransactionService to create the transaction
+            
             bool isSuccess = await TransactionService.Create(
                 UserName,
                 transaction.Title,
@@ -126,7 +126,7 @@
                 transaction.Tag
             );
 
-            // Update status message based on result
+            
             if (isSuccess)
             {
                 statusMessage = "Transaction saved successfully!";

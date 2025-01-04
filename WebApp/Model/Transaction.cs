@@ -17,7 +17,7 @@ namespace WebApp.Model
         public string Note { get; set; }
         public string Type { get; set; }
         public string Tag { get; set; }
-
+        public bool? DebtCleared { get; set; }
         public string CreatedBy { get; set; }
 
 

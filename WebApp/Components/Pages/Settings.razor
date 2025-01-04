@@ -36,8 +36,8 @@
 
     protected override void OnInitialized()
     {
-        // Fetch the current user's username from your authentication system
-        var currentUser = UserService.CurrentUser; // Make sure this gets the current user from the service
+        
+        var currentUser = UserService.CurrentUser; 
 
         if (currentUser != null)
         {
@@ -57,16 +57,16 @@
     {
         if (!string.IsNullOrEmpty(newTag))
         {
-            var currentUser = UserService.CurrentUser; // Make sure you are fetching the correct user object
+            var currentUser = UserService.CurrentUser; 
             if (currentUser != null && !currentUser.CustomTags.Contains(newTag) && !defaultTags.Contains(newTag))
             {
                 var success = UserService.AddCustomTagToUser(currentUser.Username, newTag);
 
                 if (success)
                 {
-                    // Reload custom tags after adding new one
+                    
                     userTags = currentUser.CustomTags ?? new List<string>();
-                    newTag = string.Empty; // Clear the input
+                    newTag = string.Empty; 
                 }
             }
         }
