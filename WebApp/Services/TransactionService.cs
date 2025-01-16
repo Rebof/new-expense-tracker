@@ -86,6 +86,7 @@ namespace WebApp.Services
 
             var transaction = new Transaction
             {
+                Id = Guid.NewGuid(),
                 Title = title,
                 Amount = amount,
                 Type = type,
@@ -130,7 +131,7 @@ namespace WebApp.Services
             return true;
         }
 
-        public async Task<bool> ClearDebt(string username, int transactionId)
+        public async Task<bool> ClearDebt(string username, Guid transactionId)
         {
             var transactions = await GetAll(username);
             var debtTransaction = transactions.FirstOrDefault(t => t.Id == transactionId && t.Type == "Debt" && t.DebtCleared == false);
@@ -166,5 +167,25 @@ namespace WebApp.Services
 
             return true;
         }
+
+        public async Task<bool> DeleteTransaction(string username, Guid transactionId)
+        {
+            var transactions = await GetAll(username);
+            var transactionToDelete = transactions.FirstOrDefault(t => t.Id == transactionId);
+
+            if (transactionToDelete == null)
+            {
+                
+                return false;
+            }
+
+            // Remove
+            transactions.Remove(transactionToDelete);
+
+            await SaveTransactions(username, transactions);
+
+            return true;
+        }
+
     }
 }

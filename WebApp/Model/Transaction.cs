@@ -8,7 +8,7 @@ namespace WebApp.Model
 {
     public class Transaction
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public decimal Amount { get; set; }
         public string DebtSource { get; set; }

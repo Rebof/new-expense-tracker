@@ -23,6 +23,16 @@
         white-space: normal;
         overflow-wrap: break-word;
     }
+
+    .delete-table {
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    .delete-table td, .delete-table th {
+        padding: 10px;
+        text-align: center;
+    }
 </style>
 
 <div class="main-content p-4">
@@ -75,18 +85,46 @@
     </div>
 
     <!-- Transaction List Table -->
-    <div class="card p-3">
-        <h4>Transaction List:</h4>
-        <RadzenDataGrid Data="@filteredTransactions" TItem="Transaction" Style="width: 100%;" Class="word-wrap-grid">
-            <Columns>
-                <RadzenDataGridColumn TItem="Transaction" Property="Date" Title="Date" />
-                <RadzenDataGridColumn TItem="Transaction" Property="Title" Title="Title" />
-                <RadzenDataGridColumn TItem="Transaction" Property="Amount" Title="Amount" />
-                <RadzenDataGridColumn TItem="Transaction" Property="Type" Title="Type" />
-                <RadzenDataGridColumn TItem="Transaction" Property="Tag" Title="Tag" />
-                <RadzenDataGridColumn TItem="Transaction" Property="Note" Title="Note" />
-            </Columns>
-        </RadzenDataGrid>
+    <div class="card p-3 d-flex flex-row">
+        <div class="main-table">
+            <h4>Transaction List:</h4>
+            <RadzenDataGrid Data="@filteredTransactions" TItem="Transaction" Style="width: 100%;" Class="word-wrap-grid">
+                <Columns>
+                    <RadzenDataGridColumn TItem="Transaction" Property="Date" Title="Date" />
+                    <RadzenDataGridColumn TItem="Transaction" Property="Title" Title="Title" />
+                    <RadzenDataGridColumn TItem="Transaction" Property="Amount" Title="Amount" />
+                    <RadzenDataGridColumn TItem="Transaction" Property="Type" Title="Type" />
+                    <RadzenDataGridColumn TItem="Transaction" Property="Tag" Title="Tag" />
+                    <RadzenDataGridColumn TItem="Transaction" Property="Note" Title="Note" />
+                </Columns>
+            </RadzenDataGrid>
+        </div>
+
+        <!-- Delete Actions Table -->
+        <div class="delete-table">
+            <h4>Delete Actions:</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Transaction Title</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var transaction in filteredTransactions)
+                    {
+                        <tr>
+                            <td>@transaction.Title</td>
+                            <td>
+                                <button class="btn btn-danger" @onclick="(() => DeleteTransaction(transaction.Id))">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -100,8 +138,8 @@
     private string selectedTag;
     private DateTime? fromDate;
     private DateTime? toDate;
-    private string searchText; 
-    private bool isSortedDescending = true; 
+    private string searchText;
+    private bool isSortedDescending = true;
     private string sortButtonText => isSortedDescending ? "Sort by Oldest" : "Sort by Latest"; // Toggle text
 
     // Combined AvailableTags property to include both Default and Custom tags
@@ -109,7 +147,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var currentUser = UserService.CurrentUser; 
+        var currentUser = UserService.CurrentUser;
         if (currentUser != null)
         {
             UserName = currentUser.Username;
@@ -128,7 +166,7 @@
                 else
                 {
                     statusMessage = $"Fetched {transactions.Count} transactions.";
-                    filteredTransactions = new List<Transaction>(transactions); 
+                    filteredTransactions = new List<Transaction>(transactions);
                 }
             }
             catch (Exception ex)
@@ -195,5 +233,14 @@
 
         // Toggle the sorting order for next click
         isSortedDescending = !isSortedDescending;
+    }
+
+    private async Task DeleteTransaction(Guid transactionId)
+    {
+        var success = await TransactionService.DeleteTransaction(UserName, transactionId);
+        if (success)
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Id != transactionId).ToList();
+        }
     }
 }

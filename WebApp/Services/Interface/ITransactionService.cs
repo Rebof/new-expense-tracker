@@ -13,8 +13,8 @@ namespace WebApp.Services.Interface
 
         Task<bool> Create(string username, string title, decimal amount, string type, string debtSource = null, DateTime? dueDate = null, string note = null, string tag = null);
         Task<List<Transaction>> GetAll(string username);
-
-        Task<bool> ClearDebt(string username, int transactionId);
+        Task<bool> DeleteTransaction(string username, Guid transactionId);
+        Task<bool> ClearDebt(string username, Guid transactionId);
 
     }
 }
