@@ -22,5 +22,7 @@ namespace WebApp.Services.Interface
 
         void Logout();
 
+        string GetCurrencySymbol(string currencyCode);
+
     }
 }

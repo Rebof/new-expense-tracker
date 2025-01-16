@@ -43,6 +43,13 @@ namespace WebApp.Services
         {
             // Load the existing users
             var users = LoadUsers();
+            // Validate email format
+            if (string.IsNullOrEmpty(user.Email) || !user.Email.Contains("@"))
+                return false;
+
+            // Validate password length
+            if (string.IsNullOrEmpty(user.Password) || user.Password.Length < 8)
+                return false;
 
             if (users.Any(u => u.Username == user.Username || u.Email == user.Email))
                 return false; 
@@ -102,6 +109,20 @@ namespace WebApp.Services
         {
             _currentUser = null; // Clear the current user
         }
+
+        public string GetCurrencySymbol(string currencyCode)
+        {
+            var currencySymbols = new Dictionary<string, string>
+        {
+            { "USD", "$" },
+            { "EUR", "€" },
+            { "INR", "₹" },
+            { "NPR", "₨" }
+        };
+
+            return currencySymbols.ContainsKey(currencyCode) ? currencySymbols[currencyCode] : currencyCode;
+        }
+
     }
 
 }

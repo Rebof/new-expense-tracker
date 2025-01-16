@@ -31,7 +31,7 @@
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="INR">INR</option>
-                <option value="GBP">GBP</option>
+                <option value="NPR">NPR</option>
             </select>
         </div>
 
@@ -135,21 +135,64 @@
 
 
 
+
+
+
+
     private async Task RegisterUser()
 
     {
+
         if (IsProcessing) return;
+
         IsProcessing = true;
+
         Message = "Registering user...";
+
+
+
+        // Validate email format and password length
+
+        if (string.IsNullOrEmpty(Users.Email) || !Users.Email.Contains("@"))
+
+        {
+
+            Message = "Invalid email format. Please include '@' in your email.";
+
+            IsProcessing = false;
+
+            return;
+
+        }
+
+
+
+        if (string.IsNullOrEmpty(Users.Password) || Users.Password.Length < 8)
+
+        {
+
+            Message = "Password must be at least 8 characters long.";
+
+            IsProcessing = false;
+
+            return;
+
+        }
+
+
 
         try
 
         {
+
             bool isRegistered = await Task.Run(() => UserService.Register(Users));
+
+
 
             if (isRegistered)
 
             {
+
                 Message = "User registered successfully!";
 
                 await Task.Delay(1000); // Simulate loading
@@ -159,9 +202,13 @@
             }
 
             else
+
             {
+
                 Message = "Username or Email already exists.";
+
             }
+
         }
 
         catch (Exception ex)
@@ -181,6 +228,12 @@
         }
 
     }
+
+
+
+
+
+
 
 
 

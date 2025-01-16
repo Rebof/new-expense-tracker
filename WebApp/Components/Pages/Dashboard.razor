@@ -1,47 +1,93 @@
 ﻿@page "/dashboard"
 @layout WebApp.Components.Layout.NavMenu
 
+
 @inject ITransactionService TransactionService
 @inject IUserService UserService
 
-<RadzenCard Class="main-card" Style="padding: 20px; height: 100vh;">
+<RadzenCard Class="main-card" Style="padding: 20px; height: 100vh; background-color: #f9f9f9; overflow: hidden;">
     <h3 style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
         Dashboard
-        <span>Balance: @balance</span>
+        <span style="color: #28a745; font-weight: bold;">Balance: @currencySymbol@balance</span>
     </h3>
 
-    <RadzenCard Class="content-card" Style="padding: 20px; height: 100%; overflow-y: auto;">
-        <h5 style="margin-bottom: 15px; text-align: center;">Transaction Summary:</h5>
-
-        <RadzenRow Style="margin-bottom: 20px;">
-            <!-- Statistics Section -->
+    <RadzenCard Class="content-card" Style="padding: 20px; height: calc(100% - 60px); overflow-y: auto; border: 1px solid #ddd;">
+        <!-- Statistics Section -->
+        <h5 style="margin-bottom: 15px; text-align: center;">Summary</h5>
+        <RadzenRow>
             <RadzenColumn Size="6">
-                <RadzenCard Class="stats-card" Style="padding: 20px;">
-                    <h6 style="margin-bottom: 15px; text-align: center;">Statistics</h6>
-                    <div>Total Inflow: @totalInflow</div>
-                    <div>Total Debt: @totalDebt</div>
-                    <div>Balance: @balance</div>
-                    <div>Total Outflow: @totalOutflow</div>
-                    <div>Cleared Debt: @clearedDebt</div>
-                    <div>Remaining Debt: @remainingDebt</div>
+                <RadzenCard Class="stats-card" Style="padding: 20px; background-color: #e3f2fd;">
+                    <h6 style="margin-bottom: 15px; text-align: center; color: #007bff;">Statistics</h6>
+                    <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                        <li><strong>Total Inflow:</strong> <span style="color: #28a745;">@currencySymbol@totalInflow</span></li>
+                        <li><strong>Total Debt:</strong> <span style="color: #dc3545;">@currencySymbol@totalDebt</span></li>
+                        <li><strong>Total Outflow:</strong> @currencySymbol@totalOutflow</li>
+                        <li><strong>Cleared Debt:</strong> @currencySymbol@clearedDebt</li>
+                        <li><strong>Remaining Debt:</strong> @currencySymbol@remainingDebt</li>
+                        <li><strong>Total Transactions:</strong> @totalTransactions</li>
+                    </ul>
                 </RadzenCard>
             </RadzenColumn>
 
-            <!-- Highlight Section -->
             <RadzenColumn Size="6">
-                <div>
-                    <h6>Highlights</h6>
-                    <div>Highest Debit: @(highestDebit != null ? $"{highestDebit.Title} - {highestDebit.Amount}" : "N/A")</div>
-                    <div>Lowest Debit: @(lowestDebit != null ? $"{lowestDebit.Title} - {lowestDebit.Amount}" : "N/A")</div>
-                    <div>Highest Credit: @(highestCredit != null ? $"{highestCredit.Title} - {highestCredit.Amount}" : "N/A")</div>
-                    <div>Lowest Credit: @(lowestCredit != null ? $"{lowestCredit.Title} - {lowestCredit.Amount}" : "N/A")</div>
-                    <div>Highest Debt: @(highestDebt != null ? $"{highestDebt.Title} - {highestDebt.Amount}" : "N/A")</div>
-                    <div>Lowest Debt: @(lowestDebt != null ? $"{lowestDebt.Title} - {lowestDebt.Amount}" : "N/A")</div>
-                </div>
+                <RadzenCard Class="highlights-card" Style="padding: 20px; background-color: #fff3cd;">
+                    <h6 style="margin-bottom: 15px; text-align: center; color: #856404;">Highlights</h6>
+                    <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                        <li><strong>Highest Debit:</strong> @currencySymbol@(highestDebit != null ? $"{highestDebit.Title} - {highestDebit.Amount}" : "N/A")</li>
+                        <li><strong>Lowest Debit:</strong> @currencySymbol@(lowestDebit != null ? $"{lowestDebit.Title} - {lowestDebit.Amount}" : "N/A")</li>
+                        <li><strong>Highest Credit:</strong> @currencySymbol@(highestCredit != null ? $"{highestCredit.Title} - {highestCredit.Amount}" : "N/A")</li>
+                        <li><strong>Lowest Credit:</strong> @currencySymbol@(lowestCredit != null ? $"{lowestCredit.Title} - {lowestCredit.Amount}" : "N/A")</li>
+                        <li><strong>Highest Debt:</strong> @currencySymbol@(highestDebt != null ? $"{highestDebt.Title} - {highestDebt.Amount}" : "N/A")</li>
+                        <li><strong>Lowest Debt:</strong> @currencySymbol@(lowestDebt != null ? $"{lowestDebt.Title} - {lowestDebt.Amount}" : "N/A")</li>
+                    </ul>
+                </RadzenCard>
             </RadzenColumn>
         </RadzenRow>
 
-        <h5 style="margin-bottom: 15px; text-align: center;">Pending Debts</h5>
+        <!-- Charts Section (Side by Side) -->
+        <RadzenRow>
+            <RadzenColumn Size="6">
+                <RadzenCard Style="padding: 20px; background-color: #f8f9fa; border: 1px solid #ddd;">
+                    <h5 style="margin-bottom: 15px; text-align: center;">Financial Overview</h5>
+                    <RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12" AlignItems="AlignItems.Center">
+                        <RadzenCard Variant="Variant.Outlined" Style="width: 100%;">
+                            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem" Wrap="FlexWrap.Wrap">
+                                <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
+                                <RadzenLabel Text="Show Data Labels" Component="dataLabels" />
+                            </RadzenStack>
+                        </RadzenCard>
+
+                        <RadzenStack Style="width: 100%; max-width: 600px; margin: 0 auto;">
+                            <RadzenChart SeriesClick="@OnSeriesClick">
+                                <RadzenPieSeries Data="@revenueData" Title="Financial Overview" CategoryProperty="Category" ValueProperty="Amount">
+                                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                                </RadzenPieSeries>
+                            </RadzenChart>
+                        </RadzenStack>
+                    </RadzenStack>
+                </RadzenCard>
+            </RadzenColumn>
+
+            <RadzenColumn Size="6">
+                <RadzenCard Style="padding: 20px; background-color: #f8f9fa; border: 1px solid #ddd;">
+                    <h5 style="margin-bottom: 15px; text-align: center;">Transaction Count Overview</h5>
+                    <RadzenStack Style="width: 100%; max-width: 600px; margin: 0 auto;">
+                        <RadzenChart SeriesClick="@OnSeriesClick">
+                            <RadzenDonutSeries Data="@transactionTypeData" CategoryProperty="Category" ValueProperty="Amount">
+                                <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                            </RadzenDonutSeries>
+                        </RadzenChart>
+                    </RadzenStack>
+                </RadzenCard>
+            </RadzenColumn>
+        </RadzenRow>
+
+        <!-- Debts Section (Side by Side) -->
+        <RadzenRow>
+    <RadzenColumn Size="6">
+    <h5 style="margin-top: 30px; margin-bottom: 15px; text-align: center;">Pending Debts</h5>
+    <!-- Wrap the RadzenDataGrid in a container div with height and scrollbar -->
+    <div style="max-height: 300px; overflow-y: auto; overflow-x: hidden;">
         <RadzenDataGrid Data="@debts" ColumnWidth="250px" RowHeight="50px">
             <Columns>
                 <RadzenDataGridColumn Property="Title" Title="Title" />
@@ -54,26 +100,48 @@
                 </RadzenDataGridColumn>
             </Columns>
         </RadzenDataGrid>
+    </div>
+</RadzenColumn>
 
-        <!-- Cleared Debts Section -->
+    <RadzenColumn Size="6">
         <h5 style="margin-top: 30px; margin-bottom: 15px; text-align: center;">Cleared Debts</h5>
-        <RadzenDataGrid Data="@clearedDebts" ColumnWidth="250px" RowHeight="50px">
-            <Columns>
-                <RadzenDataGridColumn Property="Title" Title="Title" />
-                <RadzenDataGridColumn Property="Amount" Title="Amount" />
-                <RadzenDataGridColumn Property="Date" Title="Cleared Date" />
-            </Columns>
-        </RadzenDataGrid>
+        <!-- Wrap the RadzenDataGrid in a container div with height and scrollbar -->
+        <div style="max-height: 300px; overflow-y: auto;">
+            <RadzenDataGrid Data="@clearedDebts" ColumnWidth="250px" RowHeight="50px">
+                <Columns>
+                    <RadzenDataGridColumn Property="Title" Title="Title" />
+                    <RadzenDataGridColumn Property="Amount" Title="Amount" />
+                    <RadzenDataGridColumn Property="Date" Title="Cleared Date" />
+                </Columns>
+            </RadzenDataGrid>
+        </div>
+    </RadzenColumn>
+</RadzenRow>
+
     </RadzenCard>
 </RadzenCard>
 
+
 @code {
+    private string currencySymbol;
     private string UserName;
     private string statusMessage;
     private List<Transaction> debts = new();
     private List<Transaction> clearedDebts = new();
     private decimal totalInflow, totalDebt, totalOutflow, balance, clearedDebt, remainingDebt;
+    private int totalTransactions, creditTransactions, debitTransactions, debtTransactions;
     private Transaction? highestDebit, lowestDebit, highestCredit, lowestCredit, highestDebt, lowestDebt;
+    private bool showDataLabels = false;
+
+    private class PieChartData
+    {
+        public string Category { get; set; }
+        public decimal Amount { get; set; }
+    }
+
+    private List<PieChartData> revenueData;
+    private List<PieChartData> transactionTypeData;
+    private List<PieChartData> monthlyTransactionData;
 
     protected override async Task OnInitializedAsync()
     {
@@ -82,6 +150,9 @@
             var currentUser = UserService.CurrentUser; // Get the current logged-in user
             if (currentUser != null)
             {
+                currencySymbol = UserService.GetCurrencySymbol(currentUser.Currency);
+
+
                 UserName = currentUser.Username;
             }
 
@@ -94,16 +165,17 @@
             }
 
             // Filter pending debts
-            debts = transactions
-                                .Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == false)
-                                .ToList();
+            debts = transactions.Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == false).ToList();
 
             // Filter cleared debts
-            clearedDebts = transactions
-                                .Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == true)
-                                .ToList();
+            clearedDebts = transactions.Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == true).ToList();
 
             // Calculate statistics
+            totalTransactions = transactions.Count;
+            creditTransactions = transactions.Count(t => t.Type == "Credit");
+            debitTransactions = transactions.Count(t => t.Type == "Debit");
+            debtTransactions = transactions.Count(t => t.Type == "Debt");
+
             totalInflow = transactions.Where(t => t.Type == "Credit").Sum(t => t.Amount);
             totalOutflow = transactions.Where(t => t.Type == "Debit").Sum(t => t.Amount) +
                            clearedDebts.Sum(t => t.Amount);
@@ -113,6 +185,25 @@
                 .Sum(t => t.Amount);
             remainingDebt = totalDebt - clearedDebt;
             balance = totalInflow - totalOutflow;
+
+            // Set the data for the pie chart
+            revenueData = new List<PieChartData>
+            {
+                new PieChartData { Category = "Inflow", Amount = totalInflow },
+                new PieChartData { Category = "Outflow", Amount = totalOutflow },
+                new PieChartData { Category = "Debt", Amount = totalDebt }
+            };
+
+            // Set the data for the donut chart
+            transactionTypeData = new List<PieChartData>
+            {
+                new PieChartData { Category = "Debit", Amount = debitTransactions },
+                new PieChartData { Category = "Credit", Amount = creditTransactions },
+                new PieChartData { Category = "Debt", Amount = debtTransactions }
+            };
+
+            
+
 
             // Calculate highlights
             highestDebit = transactions.Where(t => t.Type == "Debit").OrderByDescending(t => t.Amount).FirstOrDefault();
@@ -135,7 +226,7 @@
             var success = await TransactionService.ClearDebt(UserName, transactionId);
             if (success)
             {
-                // Refresh the dat
+                // Refresh the data
                 var transactions = await TransactionService.GetAll(UserName);
                 debts = transactions.Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == false).ToList();
                 clearedDebts = transactions.Where(t => t.Type == "Debt" && t.DebtCleared.GetValueOrDefault() == true).ToList();
@@ -150,5 +241,10 @@
         {
             statusMessage = $"Error clearing debt: {ex.Message}";
         }
+    }
+
+    void OnSeriesClick(SeriesClickEventArgs args)
+    {
+        Console.WriteLine();
     }
 }

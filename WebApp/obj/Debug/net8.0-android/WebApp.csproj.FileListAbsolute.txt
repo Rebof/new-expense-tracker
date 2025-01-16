@@ -124,3 +124,4 @@ C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-android\WebApp.Genera
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-android\WebApp.AssemblyInfoInputs.cache
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-android\WebApp.AssemblyInfo.cs
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-android\WebApp.csproj.CoreCompileInputs.cache
+C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-android\WebApp.sourcelink.json

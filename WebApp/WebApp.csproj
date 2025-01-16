@@ -58,6 +58,11 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Remove="C:\Users\rebof\.nuget\packages\chartjs.blazor.fork\2.0.2\contentFiles\any\netstandard2.1\wwwroot\ChartJsBlazorInterop.js" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ChartJs.Blazor.Fork" Version="2.0.2" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />

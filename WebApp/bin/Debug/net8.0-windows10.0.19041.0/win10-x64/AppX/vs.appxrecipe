@@ -29,25 +29,25 @@
     <AppXManifest Include="C:\Users\rebof\source\repos\WebApp\WebApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-01-16T07:19:03.548</Modified>
+      <Modified>2025-01-16T16:23:47.695</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-01-04T10:24:15.342</Modified>
+      <Modified>2025-01-16T15:28:04.409</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\WebApp.runtimeconfig.json">
       <PackagePath>WebApp.runtimeconfig.json</PackagePath>
-      <Modified>2025-01-04T10:24:14.927</Modified>
+      <Modified>2025-01-16T15:28:04.194</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\WebApp.dll">
       <PackagePath>WebApp.dll</PackagePath>
-      <Modified>2025-01-16T07:19:02.607</Modified>
+      <Modified>2025-01-16T16:23:47.445</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>WebApp.exe</PackagePath>
-      <Modified>2025-01-16T07:19:02.701</Modified>
+      <Modified>2025-01-16T16:23:47.445</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -71,27 +71,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\wwwroot\index.html">
       <PackagePath>wwwroot\index.html</PackagePath>
-      <Modified>2025-01-01T09:39:52.326</Modified>
+      <Modified>2025-01-16T14:07:46.817</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
-      <Modified>2025-01-04T10:24:09.574</Modified>
+      <Modified>2025-01-16T15:27:59.794</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
-      <Modified>2025-01-04T10:24:09.591</Modified>
+      <Modified>2025-01-16T15:27:59.814</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
-      <Modified>2025-01-04T10:24:09.612</Modified>
+      <Modified>2025-01-16T15:27:59.834</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
-      <Modified>2025-01-04T10:24:09.644</Modified>
+      <Modified>2025-01-16T15:27:59.874</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
-      <Modified>2025-01-04T10:24:09.780</Modified>
+      <Modified>2025-01-16T15:28:00.010</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
@@ -99,211 +99,211 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2025-01-04T10:24:11.941</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.927</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.927</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.926</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.926</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.926</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.936</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.935</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.934</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.935</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.935</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.937</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.937</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.936</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.937</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.936</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.941</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.940</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.940</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.940</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.939</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.939</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.939</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.938</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.938</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.938</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.931</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.930</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.930</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.929</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.929</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.932</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.932</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.932</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.931</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.931</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.934</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.934</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.933</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.933</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.933</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.929</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.928</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.928</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.928</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.928</Modified>
+      <Modified>2025-01-16T15:28:02.404</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.925</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.925</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.925</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.924</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2025-01-04T10:24:11.924</Modified>
+      <Modified>2025-01-16T15:28:02.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\WebApp.deps.json">
       <PackagePath>WebApp.deps.json</PackagePath>
-      <Modified>2025-01-04T10:24:14.654</Modified>
+      <Modified>2025-01-16T15:28:04.034</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.34\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
@@ -312,6 +312,10 @@
     <AppxPackagedFile Include="C:\Users\rebof\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.34\lib\net6.0\WinRT.Runtime.dll">
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2024-07-08T09:23:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rebof\.nuget\packages\chartjs.blazor.fork\2.0.2\lib\netstandard2.1\ChartJs.Blazor.dll">
+      <PackagePath>ChartJs.Blazor.dll</PackagePath>
+      <Modified>2021-01-11T07:54:22.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\.nuget\packages\microsoft.aspnetcore.authorization\8.0.0\lib\net8.0\Microsoft.AspNetCore.Authorization.dll">
       <PackagePath>Microsoft.AspNetCore.Authorization.dll</PackagePath>
@@ -509,6 +513,10 @@
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
       <Modified>2024-06-26T19:15:16.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rebof\.nuget\packages\newtonsoft.json\12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2019-11-09T00:56:44.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\.nuget\packages\radzen.blazor\5.7.2\lib\net8.0\Radzen.Blazor.dll">
       <PackagePath>Radzen.Blazor.dll</PackagePath>
       <Modified>2024-12-27T02:17:44.000</Modified>
@@ -677,6 +685,10 @@
       <PackagePath>Microsoft.Maui.pri</PackagePath>
       <Modified>2024-08-26T17:04:06.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rebof\.nuget\packages\chartjs.blazor.fork\2.0.2\staticwebassets\ChartJsBlazorInterop.js">
+      <PackagePath>wwwroot\_content\ChartJs.Blazor.Fork\ChartJsBlazorInterop.js</PackagePath>
+      <Modified>2021-01-11T07:28:00.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\.nuget\packages\radzen.blazor\5.7.2\staticwebassets\css\dark.css">
       <PackagePath>wwwroot\_content\Radzen.Blazor\css\dark.css</PackagePath>
       <Modified>2024-12-27T02:16:50.000</Modified>
@@ -819,11 +831,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\WebApp.styles.css">
       <PackagePath>wwwroot\WebApp.styles.css</PackagePath>
-      <Modified>2025-01-04T10:06:09.913</Modified>
+      <Modified>2025-01-16T15:27:16.994</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\WebApp.bundle.scp.css">
       <PackagePath>wwwroot\WebApp.bundle.scp.css</PackagePath>
-      <Modified>2025-01-04T10:06:09.915</Modified>
+      <Modified>2025-01-16T15:27:16.994</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rebof\source\repos\WebApp\WebApp\Components\Layout\MainLayout.razor.css">
       <PackagePath>Components\Layout\MainLayout.razor.css</PackagePath>

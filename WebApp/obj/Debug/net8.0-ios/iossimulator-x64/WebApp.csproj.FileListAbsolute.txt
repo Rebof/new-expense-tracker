@@ -56,3 +56,4 @@ C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-ios\iossimulator-x64\
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-ios\iossimulator-x64\WebApp.csproj.CoreCompileInputs.cache
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-ios\iossimulator-x64\WebApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-ios\iossimulator-x64\build-signature\signature
+C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-ios\iossimulator-x64\WebApp.sourcelink.json

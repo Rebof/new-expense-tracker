@@ -86,7 +86,7 @@
 
     <!-- Transaction List Table -->
     <div class="card p-3 d-flex flex-row">
-        <div class="main-table">
+        <div class="main-table" style="max-height: 400px; overflow-y: auto;">
             <h4>Transaction List:</h4>
             <RadzenDataGrid Data="@filteredTransactions" TItem="Transaction" Style="width: 100%;" Class="word-wrap-grid">
                 <Columns>
@@ -96,34 +96,16 @@
                     <RadzenDataGridColumn TItem="Transaction" Property="Type" Title="Type" />
                     <RadzenDataGridColumn TItem="Transaction" Property="Tag" Title="Tag" />
                     <RadzenDataGridColumn TItem="Transaction" Property="Note" Title="Note" />
+
+                    <!-- Delete Action Column -->
+                    <RadzenDataGridColumn Title="Delete">
+                        <Template Context="data">
+                            <RadzenButton Text="Delete" ButtonStyle="ButtonStyle.Danger" Icon="delete" 
+                                          Click="() => DeleteTransaction(data.Id)" />
+                        </Template>
+                    </RadzenDataGridColumn>
                 </Columns>
             </RadzenDataGrid>
-        </div>
-
-        <!-- Delete Actions Table -->
-        <div class="delete-table">
-            <h4>Delete Actions:</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Transaction Title</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var transaction in filteredTransactions)
-                    {
-                        <tr>
-                            <td>@transaction.Title</td>
-                            <td>
-                                <button class="btn btn-danger" @onclick="(() => DeleteTransaction(transaction.Id))">
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
         </div>
     </div>
 </div>
@@ -141,6 +123,7 @@
     private string searchText;
     private bool isSortedDescending = true;
     private string sortButtonText => isSortedDescending ? "Sort by Oldest" : "Sort by Latest"; // Toggle text
+    private string currencySymbol;
 
     // Combined AvailableTags property to include both Default and Custom tags
     private List<string> AvailableTags = new List<string>();
@@ -151,6 +134,7 @@
         if (currentUser != null)
         {
             UserName = currentUser.Username;
+            currencySymbol = UserService.GetCurrencySymbol(currentUser.Currency);
 
             // Combine DefaultTags and CustomTags for AvailableTags
             AvailableTags = currentUser.DefaultTags.Concat(currentUser.CustomTags).Distinct().ToList();

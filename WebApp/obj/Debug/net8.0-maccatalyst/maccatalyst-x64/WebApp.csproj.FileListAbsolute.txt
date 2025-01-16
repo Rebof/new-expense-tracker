@@ -48,3 +48,4 @@ C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-maccatalyst\maccataly
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\WebApp.AssemblyInfo.cs
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\WebApp.csproj.CoreCompileInputs.cache
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\WebApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\WebApp.sourcelink.json

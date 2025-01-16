@@ -208,3 +208,5 @@ C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\w
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 C:\Users\rebof\source\repos\WebApp\WebApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\WebApp.sourcelink.json
+C:\Users\rebof\source\repos\WebApp\WebApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ChartJs.Blazor.dll
+C:\Users\rebof\source\repos\WebApp\WebApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Newtonsoft.Json.dll
