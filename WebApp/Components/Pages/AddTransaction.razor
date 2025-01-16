@@ -68,12 +68,12 @@
                                Style="margin-bottom: 20px; width: 100%;" />
             </div>
 
-            <!-- Hardcoded Tags Dropdown -->
+            <!-- Tags Dropdown -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <label for="tags">Select Tag:</label>
                     <RadzenDropDown TValue="string" id="tags" Name="Tags" Placeholder="Select a tag"
-                                    Data="@(new List<string> { "Food", "Shopping", "Entertainment", "Bills", "Savings" })"
+                                    Data="@AvailableTags"
                                     Style="width: 200px;" @bind-Value="transaction.Tag" />
                 </div>
             </div>
@@ -99,22 +99,28 @@
     private Transaction transaction = new Transaction();
     private string statusMessage;
     private string UserName;
+    private List<string> AvailableTags = new List<string>(); // To store combined tags
 
     protected override void OnInitialized()
     {
-        var currentUser = UserService.CurrentUser; 
+        var currentUser = UserService.CurrentUser;
         if (currentUser != null)
         {
-            UserName = currentUser.Username; 
+            UserName = currentUser.Username;
+
+            // Combine DefaultTags and CustomTags
+            AvailableTags = currentUser.DefaultTags.Concat(currentUser.CustomTags).ToList();
+        }
+        else
+        {
+            statusMessage = "Error: No user is currently logged in.";
         }
     }
 
-    
     private async Task OnSubmit()
     {
         try
         {
-            
             bool isSuccess = await TransactionService.Create(
                 UserName,
                 transaction.Title,
@@ -126,7 +132,6 @@
                 transaction.Tag
             );
 
-            
             if (isSuccess)
             {
                 statusMessage = "Transaction saved successfully!";

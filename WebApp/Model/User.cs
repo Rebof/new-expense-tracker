@@ -18,11 +18,11 @@ namespace WebApp.Model
 
         public List<string> DefaultTags { get; set; }
         public List<string> CustomTags { get; set; }
-
+        
         public User()
         {
             // Initialize with some default tags
-            DefaultTags = new List<string> { "groceries", "salary", "rent", "work", "travel" };
+            DefaultTags = new List<string> { "Yearly", "Monthly", "Food", "Drinks", "Clothes", "Gadgets", "Misscellaneous", "Fuel", "Rent", "EMI", "Party" };
             CustomTags = new List<string>(); 
             Balance = 0;
         }
