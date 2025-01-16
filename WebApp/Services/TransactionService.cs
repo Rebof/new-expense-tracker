@@ -43,7 +43,7 @@ namespace WebApp.Services
 
             if (!File.Exists(filePath))
             {
-                return new List<Transaction> { new Transaction { Title = $"File path not found: {filePath}" } };
+                return new List<Transaction>();
             }
 
             try
