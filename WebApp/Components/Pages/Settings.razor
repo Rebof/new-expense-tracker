@@ -4,40 +4,88 @@
 @inject IUserService UserService
 @inject NavigationManager NavigationManager
 
-<h3>Settings</h3>
+<div class="container mt-4" style="max-height: 80vh; overflow-y: auto;">
+    <h3>Settings</h3>
 
+    <!-- User Information -->
+    <div class="card p-4 mb-4">
+        <h4>User Information</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Full Name:</strong> @currentUser.FullName
+            </div>
+            <div class="col-md-6">
+                <strong>Username:</strong> @currentUser.Username
+            </div>
+            <div class="col-md-6">
+                <strong>Email:</strong> @currentUser.Email
+            </div>
+            <div class="col-md-6">
+                <strong>Currency:</strong> @currentUser.Currency
+            </div>
+            <div class="col-md-6">
+                <strong>Balance:</strong> @currentUser.Balance.ToString("C")
+            </div>
+        </div>
+    </div>
 
-<!-- Display Default Tags (read-only) -->
-<h4>Default Tags</h4>
-<ul>
-    @foreach (var tag in defaultTags)
-    {
-        <li>@tag</li>
-    }
-</ul>
+    <!-- Display Default Tags (read-only) -->
+    <div class="card p-4 mb-4">
+        <h4>Default Tags</h4>
+        @if (defaultTags.Any())
+        {
+            <ul class="list-group">
+                @foreach (var tag in defaultTags)
+                {
+                    <li class="list-group-item">@tag</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No default tags available.</p>
+        }
+    </div>
 
-<!-- Display User's Custom Tags (editable) -->
-<h4>Your Custom Tags</h4>
-<ul>
-    @foreach (var tag in userTags)
-    {
-        <li>@tag</li>  <!-- No removal option for custom tags -->
-    }
-</ul>
+    <!-- Display User's Custom Tags (editable) -->
+    <div class="card p-4 mb-4">
+        <h4>Your Custom Tags</h4>
+        @if (userTags.Any())
+        {
+            <ul class="list-group">
+                @foreach (var tag in userTags)
+                {
+                    <li class="list-group-item d-flex justify-content-between">
+                        @tag
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No custom tags added yet.</p>
+        }
+    </div>
 
-<!-- Add New Custom Tag -->
-<input @bind="newTag" placeholder="Enter new custom tag" />
-<button @onclick="AddCustomTag">Add Custom Tag</button>
+    <!-- Add New Custom Tag Section -->
+    <div class="card p-4 mb-4">
+        <h4>Add a New Custom Tag</h4>
+        <div class="d-flex align-items-center">
+            <input @bind="newTag" class="form-control" placeholder="Enter new custom tag" />
+            <button @onclick="AddCustomTag" class="btn btn-primary ms-2">Add Custom Tag</button>
+        </div>
+    </div>
+</div>
 
 @code {
     private string newTag;
     private List<string> defaultTags;
     private List<string> userTags;
+    private dynamic currentUser;
 
     protected override void OnInitialized()
     {
-        
-        var currentUser = UserService.CurrentUser; 
+        currentUser = UserService.CurrentUser;
 
         if (currentUser != null)
         {
@@ -57,16 +105,15 @@
     {
         if (!string.IsNullOrEmpty(newTag))
         {
-            var currentUser = UserService.CurrentUser; 
             if (currentUser != null && !currentUser.CustomTags.Contains(newTag) && !defaultTags.Contains(newTag))
             {
                 var success = UserService.AddCustomTagToUser(currentUser.Username, newTag);
 
                 if (success)
                 {
-                    
+                    // Refresh user's tags after successful addition
                     userTags = currentUser.CustomTags ?? new List<string>();
-                    newTag = string.Empty; 
+                    newTag = string.Empty; // Clear input field
                 }
             }
         }

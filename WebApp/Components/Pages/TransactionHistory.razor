@@ -12,17 +12,17 @@
         white-space: normal;
     }
 
-        .word-wrap-grid .rz-column {
-            word-wrap: break-word;
-            white-space: normal;
-            overflow-wrap: break-word; /* Ensure proper word breaking */
-        }
+    .word-wrap-grid .rz-column {
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word; /* Ensure proper word breaking */
+    }
 
-        .word-wrap-grid .rz-cell {
-            word-wrap: break-word;
-            white-space: normal;
-            overflow-wrap: break-word;
-        }
+    .word-wrap-grid .rz-cell {
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
 </style>
 
 <div class="main-content p-4">
@@ -47,7 +47,7 @@
             <div class="col-md-3">
                 <label for="tags">Tags:</label>
                 <RadzenDropDown TValue="string" id="tags" Name="Tags" Placeholder="Select tag(s)"
-                                Data="@(new List<string> { "Entertainment", "Food", "Bills", "Savings" })"
+                                Data="@AvailableTags"
                                 @bind-Value="selectedTag"
                                 AllowClear="true" Style="width: 100%;" />
             </div>
@@ -73,8 +73,6 @@
             </div>
         </div>
     </div>
-
-    
 
     <!-- Transaction List Table -->
     <div class="card p-3">
@@ -106,32 +104,41 @@
     private bool isSortedDescending = true; 
     private string sortButtonText => isSortedDescending ? "Sort by Oldest" : "Sort by Latest"; // Toggle text
 
+    // Combined AvailableTags property to include both Default and Custom tags
+    private List<string> AvailableTags = new List<string>();
+
     protected override async Task OnInitializedAsync()
     {
         var currentUser = UserService.CurrentUser; 
         if (currentUser != null)
         {
-            UserName = currentUser.Username; 
-        }
+            UserName = currentUser.Username;
 
-        try
-        {
-            
-            transactions = await TransactionService.GetAll(UserName);
+            // Combine DefaultTags and CustomTags for AvailableTags
+            AvailableTags = currentUser.DefaultTags.Concat(currentUser.CustomTags).Distinct().ToList();
 
-            if (transactions == null || !transactions.Any())
+            try
             {
-                statusMessage = "No transactions found.";
+                transactions = await TransactionService.GetAll(UserName);
+
+                if (transactions == null || !transactions.Any())
+                {
+                    statusMessage = "No transactions found.";
+                }
+                else
+                {
+                    statusMessage = $"Fetched {transactions.Count} transactions.";
+                    filteredTransactions = new List<Transaction>(transactions); 
+                }
             }
-            else
+            catch (Exception ex)
             {
-                statusMessage = $"Fetched {transactions.Count} transactions.";
-                filteredTransactions = new List<Transaction>(transactions); 
+                statusMessage = $"Error: {ex.Message}";
             }
         }
-        catch (Exception ex)
+        else
         {
-            statusMessage = $"Error: {ex.Message}";
+            statusMessage = "Error: No user is currently logged in.";
         }
     }
 
@@ -140,13 +147,11 @@
     {
         filteredTransactions = transactions;
 
-        
         if (!string.IsNullOrEmpty(selectedType))
         {
             filteredTransactions = filteredTransactions.Where(t => t.Type == selectedType).ToList();
         }
 
-        
         if (!string.IsNullOrEmpty(selectedTag))
         {
             filteredTransactions = filteredTransactions.Where(t => t.Tag == selectedTag).ToList();
@@ -162,11 +167,9 @@
             filteredTransactions = filteredTransactions.Where(t => t.Date <= toDate.Value).ToList();
         }
 
-        
         SearchTransactions();
     }
 
-    
     private void SearchTransactions()
     {
         string searchTerm = searchText?.ToLower();
@@ -179,7 +182,6 @@
         }
     }
 
-    
     private void SortByDate()
     {
         if (isSortedDescending)
